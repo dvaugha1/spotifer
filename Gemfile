@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#Can't forget pry
+gem 'pry'
 #Auth time!
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
