@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#Adding Spotify gem
+gem 'rspotify'
 #Auth time!
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
