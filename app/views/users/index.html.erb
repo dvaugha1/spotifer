@@ -1,0 +1,16 @@
+<p class="notice"><%= notice %></p>
+
+<h1> Spotifer Playlist App </h1>
+  <p> Below is a list of all users registered for the Spotifer app: </p>
+  <br>
+  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> | <%= link_to 'Go to Your Profile Page', users_show_path(current_user) %>
+  <br>
+--------------------------------------------
+  <br>
+
+  <ul>
+    <% @users.each do |u| %>
+      <li><%= u.email %></li>
+    <% end %>
+  </ul>
+
