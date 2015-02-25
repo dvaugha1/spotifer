@@ -1,5 +1,12 @@
 source 'https://rubygems.org'
 
+
+#Can't forget pry
+gem 'pry'
+
+#Adding Spotify gem
+gem 'rspotify'
+
 #Auth time!
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
