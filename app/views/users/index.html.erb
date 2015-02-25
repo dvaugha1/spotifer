@@ -1,9 +1,14 @@
 <p class="notice"><%= notice %></p>
 
-<h1> Spotifer Playlist App </h1>
-  <p> Below is a list of all users registered for the Spotifer app: </p>
-  <br>
-  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %> | <%= link_to 'Go to Your Profile Page', users_show_path(current_user) %>
+<div class="header">
+  <h1> Spotifer <small> Playlist App </small></h1>
+    <div class="Intro" >
+      <p><strong>Below is a list of all users registered for the Spotifer app:</strong> </p>
+      <br>
+</div>
+  </div>
+    <br>
+  <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-default btn-sm" %> | <%= link_to 'Go to Your Profile Page', users_show_path(current_user), class: "btn btn-default btn-sm" %>
   <br>
 --------------------------------------------
   <br>
