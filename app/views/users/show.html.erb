@@ -1,0 +1,10 @@
+<p class="notice"><%= notice %></p>
+
+<h1> Profile Page </h1>
+<br>
+
+<p> Username: <%= current_user.email %> </p>
+
+----------------------------------------
+<br>
+<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
