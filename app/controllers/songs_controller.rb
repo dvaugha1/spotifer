@@ -10,7 +10,7 @@ class SongsController < ApplicationController
 
   def suggestions
     @suggestions = Song.all
-    render :suggestions
+    render :suggestion
   end
 
   def search
@@ -23,7 +23,9 @@ class SongsController < ApplicationController
   end
 
   def create
-
+    @song = RSpotify::Track.find(params[:id])
+    @song.save
+    @suggest = Song.create(spotify_id: @song.id, user_id: current_user.id, title: @song.name, artist: @song.artists.first.name, album: @song.album.name)
   end
 
 end
