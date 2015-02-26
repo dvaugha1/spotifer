@@ -5,10 +5,13 @@ class SongsController < ApplicationController
   end
 
   def index
-    @suggestions = Song.all
-    render :suggestion
+
   end
 
+  def suggestions
+    @suggestions = Song.all
+    render :suggestions
+  end
 
   def search
     @results = []
@@ -19,4 +22,16 @@ class SongsController < ApplicationController
     render :show
   end
 
+  def create
+
+  end
+
 end
+
+
+# 1L94M3KIu7QluZe63g64rv
+
+# @current = Playlist.last
+
+
+# @track = RSpotify::Track.find(params[:id])
