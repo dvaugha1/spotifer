@@ -1,11 +1,17 @@
 <p class="notice"><%= notice %></p>
 
 <div class="header">
-  <h1> Spotifer <small> Playlist App </small></h1>
-    <div class="Intro" >
-      <p><strong>Below is a list of all users registered for the Spotifer app:</strong> </p>
-      <br>
+  <h2> Spotifer </h2>
+    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSBjCrgjQNC7aTn7FV4mxXVmxBITCv5RTp7JMI8a1RNFdGM4WEnLA" id="logo">
+    <h1> Playlist App </h1>
+      <div class='top-buttons'>
+        <%= link_to 'Go to Your Profile Page', users_show_path(current_user), class: "btn btn-default btn-sm" %>
+        <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-default btn-sm" %>
+      </div>
 </div>
+  <div class="Intro" >
+    <p><strong>Below is a list of all users registered for the Spotifer app:</strong> </p>
+    <br>
   </div>
     <br>
   <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-default btn-sm" %> | <%= link_to 'Go to Your Profile Page', users_show_path(current_user), class: "btn btn-default btn-sm" %>
