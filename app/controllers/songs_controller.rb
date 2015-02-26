@@ -14,17 +14,18 @@ class SongsController < ApplicationController
   end
 
   def search
-    # @results = []
-    # if params[:title]
-    @results = RSpotify::Track.search(params[:title])
-      # @results = titles
+    @results = []
+    @title = params[:title]
+    if @title
+      @results = RSpotify::Track.search(@title)
+    end
     #binding.pry
     render :show
   end
 
   def create
     #binding.pry
-    @suggest = Song.create(params[:song_params])
+    @suggest = Song.create(song_params)
     binding.pry
     render :suggestion
   end

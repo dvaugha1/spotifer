@@ -1,7 +1,7 @@
 <div class="header">
   <h2> Spotifer </h2>
   <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSBjCrgjQNC7aTn7FV4mxXVmxBITCv5RTp7JMI8a1RNFdGM4WEnLA" id="logo">
-    <h1>Results for <u><em><%= params[:title] %></em></u></h1>
+    <h1>Results for <u><em><%= @title %></em></u></h1>
       <div class='top-buttons'>
         <%= link_to 'Back to Search', songs_index_path, class: "btn btn-default btn-sm" %>  <%= link_to 'Go to Your Profile Page', users_show_path(current_user), class: "btn btn-default btn-sm" %>
       </div>
@@ -10,18 +10,16 @@
 <table class="table table-striped">
   <% @results.each do |r| %>
   <tr>
-      <td><%= r.name %><%= button_to 'Suggest', songs_create_path, {
-        method: :post,
-        params: {song: {
-            spotify_id: r.id, artist: r.artists.first.name, title: r.name, album: r.album.name, user_id: current_user.id }
+      <td><%= r.name %><%= button_to 'Suggest', songs_create_path,{
+        method: :post
+        params: [song: {
+          spotify_id: r.id,
+          user_id: current_user.id,
+          title: r.name,
+          artist: r.artists.first.name,
+          album: r.album.name
           }
-        }, class: "btn btn-default btn-sm" %></td>
+        ], class: "btn btn-default btn-sm" %></td>
     <% end %>
   </tr>
 </table>
-
-
-
-
-
-
