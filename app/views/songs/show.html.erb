@@ -10,7 +10,12 @@
 <table class="table table-striped">
   <% @results.each do |r| %>
   <tr>
-      <td><%= r.name %><%= link_to 'Suggest', songs_create_path, method: :post, class: "btn btn-default btn-sm" %></td>
+      <td><%= r.name %><%= button_to 'Suggest', songs_create_path, {
+        method: :post,
+        params: {song: {
+            spotify_id: r.id, artist: r.artists.first.name, title: r.name, album: r.album.name, user_id: current_user.id }
+          }
+        }, class: "btn btn-default btn-sm" %></td>
     <% end %>
   </tr>
 </table>
