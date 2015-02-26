@@ -5,7 +5,8 @@ class SongsController < ApplicationController
   end
 
   def index
-
+    @suggestions = Song.all
+    render :suggestion
   end
 
 
