@@ -14,18 +14,24 @@ class SongsController < ApplicationController
   end
 
   def search
-    @results = []
-    if params[:title]
-      titles = RSpotify::Track.search(params[:title])
-      @results = titles
-    end
+    # @results = []
+    # if params[:title]
+    @results = RSpotify::Track.search(params[:title])
+      # @results = titles
+    #binding.pry
     render :show
   end
 
   def create
-    @song = RSpotify::Track.find(params[:id])
-    @song.save
-    @suggest = Song.create(spotify_id: @song.id, user_id: current_user.id, title: @song.name, artist: @song.artists.first.name, album: @song.album.name)
+    #binding.pry
+    @suggest = Song.create(params[:song_params])
+    binding.pry
+    render :suggestion
+  end
+
+  private
+  def song_params
+    params.require[:song].permit(:spotify_id, :user_id, :title, :artist, :album)
   end
 
 end
