@@ -1,0 +1,17 @@
+<div class="header">
+  <h2> Spotifer </h2>
+  <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSBjCrgjQNC7aTn7FV4mxXVmxBITCv5RTp7JMI8a1RNFdGM4WEnLA" id="logo">
+    <h1>Results for <u><em><%= @title %></em></u></h1>
+      <div class='top-buttons'>
+        <%= link_to 'Back to Search', songs_index_path, class: "btn btn-default btn-sm" %>  <%= link_to 'Go to Your Profile Page', users_show_path(current_user), class: "btn btn-default btn-sm" %>
+      </div>
+</div>
+
+<table class="table table-striped">
+  <% @results.each do |r| %>
+  <tr>
+      <td><%= r.name %><div class="sugg-button"><%= button_to('Suggest', songs_create_path(:song => {:user_id => current_user.id, :spotify_id => r.id, :artist => r.artists.first.name, :title => r.name, :album => r.album.name}),
+       method: :post, class: "btn btn-default btn-sm") %></div></td>
+    <% end %>
+  </tr>
+</table>
