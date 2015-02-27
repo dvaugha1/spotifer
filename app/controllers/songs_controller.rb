@@ -8,10 +8,11 @@ class SongsController < ApplicationController
 
   end
 
-  def suggestions
-    @suggestions = Song.all
-    render :suggestion
-  end
+  # def suggestions
+  #   binding.pry
+  #   @suggestions = Song.all
+  #   #render :suggestion
+  # end
 
   def search
     @results = []
@@ -24,9 +25,11 @@ class SongsController < ApplicationController
 
   def create
     #binding.pry
-    @suggest = Song.create(song_params)
-    binding.pry
-    render :suggestion
+    @suggest = Song.new(song_params)
+    @suggest.save
+    # binding.pry
+    @suggestions = Song.all
+    render :suggestions
   end
 
   private
