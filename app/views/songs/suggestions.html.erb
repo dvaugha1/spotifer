@@ -10,7 +10,10 @@
 <table class="table table-striped">
   <% @suggestions.each do |s| %>
   <tr>
-      <td><%= s.title %> &nbsp &nbsp <small><strong><%=s.artist%></strong></small></td>
+      <td><%= s.title %> &nbsp &nbsp <small><strong><%=s.artist%></strong></small><%= button_to('Vote',
+                                                    users_vote_path(:song => {:user_id => current_user.id,
+                                                    :song_id => s.id,}),method: :post,
+                                                    class: "btn btn-default btn-sm") %></td>
     <% end %>
   </tr>
 </table>
