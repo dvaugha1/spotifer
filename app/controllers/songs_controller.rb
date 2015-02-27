@@ -20,7 +20,6 @@ class SongsController < ApplicationController
       @results = RSpotify::Track.search(@title)
     end
     #binding.pry
-    render :show
   end
 
   def create
@@ -32,7 +31,7 @@ class SongsController < ApplicationController
 
   private
   def song_params
-    params.require[:song].permit(:spotify_id, :user_id, :title, :artist, :album)
+    params.require(:song).permit(:spotify_id, :user_id, :title, :artist, :album)
   end
 
 end

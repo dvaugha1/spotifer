@@ -11,7 +11,7 @@
   <div class="form-group form-inline searchWrap">  <div>
           <%= form_tag '/search', method: 'get' do %>
           <%= text_field_tag 'title',
-                        :title,
+                        params[:title],
                         :class => "form-control input-lg searchBox",
                         :placeholder => 'Search by Artist' %>
   </div>
@@ -23,3 +23,6 @@
           <% end %>
       </div>
   </div>
+
+
+
