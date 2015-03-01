@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  # before_action :set_song, only: [:vote]
+  before_action :authenticate_user!
+
 
   def index
     @users = User.all
@@ -9,6 +12,27 @@ class UsersController < ApplicationController
     render :show
   end
 
+  def vote
+    # @vote = Song.find(params[:song_id])
+    # binding.pry
+    if current_user.vote_count > 0
+      @vote = SongVote.new(vote_params)
+      @vote.save
+      # binding.pry
+      render :vote
+    else
+      flash[:alert] = "You currently have no votes to use! Please check back at the start of the new week"
+      render :show
+    end
+  end
 
+
+private
+  def vote_params
+    params.require(:song_vote).permit(:song_id, :user_id, :artist, :title)
+  end
+  # def vote_params
+  #   params.require(:song).permit(:spotify_id, :user_id, :title, :artist, :album)
+  # end
 
 end

@@ -1,18 +1,17 @@
 <div class="header">
   <h2> Spotifer </h2>
   <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSBjCrgjQNC7aTn7FV4mxXVmxBITCv5RTp7JMI8a1RNFdGM4WEnLA" id="logo">
-    <h1>Current Suggestions</h1>
+    <h1>Votes List</h1>
       <div class='top-buttons'>
         <%= link_to 'Back to Search', songs_index_path, class: "btn btn-default btn-sm" %>  <%= link_to 'Go to Your Profile Page', users_show_path(current_user), class: "btn btn-default btn-sm" %>
       </div>
 </div>
 
+
 <table class="table table-striped">
-  <% @suggestions.each do |s| %>
+  <% @songvotes.each do |s| %>
   <tr>
-      <td><%= s.title %> &nbsp &nbsp <small><strong><%=s.artist%></strong></small><%= button_to('Vote',
-                                                      vote_path(:song_vote => {:song_id => s.id, :user_id => current_user.id, :title => s.title, :artist => s.artist}),
-                                                      method: :post, class: "btn btn-default btn-sm") %></td>
-    <% end %>
+      <td><%= s.title %></td>
+    <%end%>
   </tr>
 </table>

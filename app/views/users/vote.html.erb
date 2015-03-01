@@ -1,0 +1,18 @@
+<div class="header">
+  <h2> Spotifer </h2>
+  <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSBjCrgjQNC7aTn7FV4mxXVmxBITCv5RTp7JMI8a1RNFdGM4WEnLA" id="logo">
+    <h1>Your Submission</h1>
+      <div class='top-buttons'>
+        <%= link_to 'Back to Search', songs_index_path, class: "btn btn-default btn-sm" %>  <%= link_to 'Go to Your Profile Page', users_show_path(current_user), class: "btn btn-default btn-sm" %>
+      </div>
+</div>
+
+
+
+
+<h4> Voted for:&nbsp&nbsp <em><%= @vote.title %></em> &nbsp <em><small><%= @vote.artist %></small></em> </h4>
+
+<br>
+
+<div class="list-button"> <%= link_to 'List of Votes', song_votes_index_path, class: "btn btn-success btn-lg" %> </div>
+
