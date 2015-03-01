@@ -27,10 +27,6 @@ class UsersController < ApplicationController
   end
 
 
-  def list
-    @votes = SongVote.all
-  end
-
 private
   def vote_params
     params.require(:song_vote).permit(:song_id, :user_id, :artist, :title)

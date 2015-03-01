@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/suggestions', to: "songs#create", as: "songs_create"
   #get '/vote', to: "users#playlist", as: "users_playlist"
   post '/vote', to: "users#vote", as: "vote"
-  get '/list', to: "users#list", as: "list"
+  get '/index', to: "song_votes#index", as: "song_votes_index"
   # The priority is based upon order of , creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
