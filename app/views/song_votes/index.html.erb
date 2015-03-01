@@ -9,9 +9,9 @@
 
 
 <table class="table table-striped">
-  <% @songvotes.each do |s| %>
+  <% @groups.each do |g| %>
   <tr>
-      <td><%= s.title %></td>
+      <td><%= g[0] %> </td>
     <%end%>
   </tr>
 </table>

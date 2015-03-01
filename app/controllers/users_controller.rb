@@ -13,12 +13,13 @@ class UsersController < ApplicationController
   end
 
   def vote
-    # @vote = Song.find(params[:song_id])
-    # binding.pry
     if current_user.vote_count > 0
       @vote = SongVote.new(vote_params)
       @vote.save
-      # binding.pry
+      @user = User.find(current_user)
+      total_votes = current_user.vote_count - 1
+      @user.update(:vote_count => total_votes)
+      binding.pry
       render :vote
     else
       flash[:alert] = "You currently have no votes to use! Please check back at the start of the new week"
@@ -31,8 +32,4 @@ private
   def vote_params
     params.require(:song_vote).permit(:song_id, :user_id, :artist, :title)
   end
-  # def vote_params
-  #   params.require(:song).permit(:spotify_id, :user_id, :title, :artist, :album)
-  # end
-
 end

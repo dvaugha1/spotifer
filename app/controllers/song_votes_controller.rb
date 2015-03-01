@@ -1,7 +1,7 @@
 class SongVotesController < ApplicationController
 
   def index
-    @songvotes = SongVote.all
+    @groups = SongVote.group('title').order('count_id desc').count('id')
   end
 
 end
