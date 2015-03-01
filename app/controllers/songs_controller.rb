@@ -20,14 +20,11 @@ class SongsController < ApplicationController
     if @title
       @results = RSpotify::Track.search(@title)
     end
-    #binding.pry
   end
 
   def create
-    #binding.pry
     @suggest = Song.new(song_params)
     @suggest.save
-    # binding.pry
     @suggestions = Song.all
     render :suggestions
   end
@@ -40,9 +37,3 @@ class SongsController < ApplicationController
 end
 
 
-# 1L94M3KIu7QluZe63g64rv
-
-# @current = Playlist.last
-
-
-# @track = RSpotify::Track.find(params[:id])
