@@ -11,7 +11,7 @@
   <% @suggestions.each do |s| %>
   <tr>
       <td><%= s.title %> &nbsp &nbsp <small><strong><%=s.artist%></strong></small><%= button_to('Vote',
-                                                      vote_path(:song_vote => {:song_id => s.id, :user_id => current_user.id}),
+                                                      vote_path(:song_vote => {:song_id => s.id, :user_id => current_user.id, :title => s.title, :artist => s.artist}),
                                                       method: :post, class: "btn btn-default btn-sm") %></td>
     <% end %>
   </tr>
