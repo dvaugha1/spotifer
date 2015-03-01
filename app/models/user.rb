@@ -9,16 +9,7 @@ class User < ActiveRecord::Base
 
 
 
-  def can_vote?
-    self.vote_count > 0
-  end
 
-  def voted
-    if self.can_vote?
-      self.vote_count -= 1
-      self.save
-    end
-  end
 
 
 end

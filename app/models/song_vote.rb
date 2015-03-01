@@ -1,7 +1,7 @@
 class SongVote < ActiveRecord::Base
   belongs_to :user
   belongs_to :song
-  belongs_to :playlist
+  #belongs_to :playlist
 end
 
 
