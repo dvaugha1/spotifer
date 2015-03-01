@@ -19,7 +19,6 @@ class UsersController < ApplicationController
       @user = User.find(current_user)
       total_votes = current_user.vote_count - 1
       @user.update(:vote_count => total_votes)
-      binding.pry
       render :vote
     else
       flash[:alert] = "You currently have no votes to use! Please check back at the start of the new week"

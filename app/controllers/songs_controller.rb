@@ -23,10 +23,18 @@ class SongsController < ApplicationController
   end
 
   def create
-    @suggest = Song.new(song_params)
-    @suggest.save
-    @suggestions = Song.all
-    render :suggestions
+    song = params[:song]
+    spotify = song[:spotify_id]
+      if Song.find_by spotify_id: spotify
+        flash[:notice] = "Suggestion already added. Please select another."
+        redirect_to songs_index_path
+      else
+        @suggest = Song.new(song_params)
+        @suggest.save
+        @suggestions = Song.all
+        render :suggestions
+      end
+
   end
 
   private
